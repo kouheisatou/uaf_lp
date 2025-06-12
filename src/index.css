@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 下半分にマーカーラインを引く */
+.highlight {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(253, 224, 71, 0.7) 0%
+  );
+} 
