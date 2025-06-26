@@ -107,10 +107,10 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch min-h-[600px]">
           {/* Contact Form */}
           <motion.div
-            className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-xl h-[600px] flex flex-col"
+            className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-xl h-full flex flex-col"
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -120,7 +120,7 @@ export default function ContactSection() {
             </h3>
 
             <form onSubmit={handleSubmit} className="h-full flex flex-col">
-              <div className="flex-1 space-y-6">
+              <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label
@@ -225,8 +225,8 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={1}
-                    className="w-full flex-1 min-h-[120px] px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-y"
+                    rows={5}
+                    className="w-full flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
                     placeholder="お問い合わせの詳細をお聞かせください..."
                   />
                 </div>
@@ -246,7 +246,7 @@ export default function ContactSection() {
 
           {/* Contact Information */}
           <motion.div
-            className="space-y-8"
+            className="space-y-8 h-full"
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
