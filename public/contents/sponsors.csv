@@ -1,0 +1,7 @@
+id,name,category,description,contribution,website,thumbnail
+1,TechCorp Japan,platinum,クラウドインフラストラクチャとAI技術の提供,AWS環境とGitHub Enterpriseライセンス,https://techcorp.jp,techcorp.jpg
+2,DevTools Inc,gold,開発ツールとCI/CDパイプラインの支援,JetBrains製品ライセンスとDocker環境,https://devtools.com,devtools.jpg
+3,StartupHub,gold,スタートアップエコシステムとの連携,メンタリングプログラムとピッチ機会,https://startuphub.com,startuphub.jpg
+4,Design Studio,silver,UI/UXデザインコンサルティング,Figmaライセンスとデザインレビュー,https://designstudio.com,designstudio.jpg
+5,Code Academy,silver,技術教育とトレーニング支援,勉強会講師派遣と教材提供,https://codeacademy.com,codeacademy.jpg
+6,Innovation Lab,partner,研究開発における技術協力,共同研究プロジェクトと技術アドバイス,https://innovationlab.com,innovationlab.jpg 

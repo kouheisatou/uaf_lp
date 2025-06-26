@@ -1,0 +1,5 @@
+id,name,role,university,bio,skills,achievements,github,twitter,linkedin,email,thumbnail
+1,田中山田之助 太郎,代表理事,東京大学,フルスタック開発者として複数の大学アプリを開発。学生開発者コミュニティの発展に情熱を注ぐ。,"React;Node.js;TypeScript;AWS","5つの大学アプリを開発;ハッカソン優勝経験;1万人以上のユーザーに利用されるアプリを開発",tanaka-taro,tanaka_dev,,tanaka@uaf.org,tanaka.jpg
+2,佐藤 花子,技術担当理事,京都大学,UI/UXデザインとフロントエンド開発が専門。ユーザー中心設計でより良い学生体験を追求。,"UI/UX Design;React;Figma;Flutter","デザインアワード受賞;学内アプリのUX改善で満足度30%向上;複数企業でのインターン経験",sato-hanako,,sato-hanako,,sato.jpg
+3,山田 次郎,事業開発担当理事,大阪大学,プロダクトマネジメントと事業戦略が得意。学生開発の持続可能な仕組み作りに取り組む。,"Product Management;Business Strategy;Data Analysis;Python","3つのスタートアップでPM経験;アプリの月間アクティブユーザー5万人達成;VC主催のピッチコンテスト優勝",,yamada_pm,yamada-jiro,,yamada.jpg
+4,鈴木 美咲,コミュニティ担当理事,早稲田大学,コミュニティ運営とイベント企画のエキスパート。学生同士のつながりを大切にする。,"Community Management;Event Planning;Marketing;Content Creation","500人規模のイベント運営;20大学以上との連携構築;SNSフォロワー1万人以上",,suzuki_community,,suzuki@uaf.org,suzuki.jpg 

@@ -1,0 +1,7 @@
+id,title,description,category,date,location,thumbnail
+1,第1回 UAF ハッカソン,全国の大学生が集まる3日間のハッカソンイベント,event,2024-03-15,東京,hackathon-1.jpg
+2,React Native 勉強会,モバイルアプリ開発の基礎から応用まで,education,2024-02-20,オンライン,workshop-react.jpg
+3,キャンパスアプリUI/UX改善プロジェクト,複数大学のアプリのユーザビリティ向上,development,2024-01-10,大阪,ux-project.jpg
+4,新入生向けアプリ開発講座,プログラミング初心者のためのワークショップ,education,2024-04-05,福岡,beginner-workshop.jpg
+5,大学間API連携プロジェクト,各大学のシステム連携を促進する技術開発,development,2024-02-01,オンライン,api-project.jpg
+6,学生開発者ピッチコンテスト,優秀なアプリアイデアを競うコンテスト,event,2024-05-20,名古屋,pitch-contest.jpg 
