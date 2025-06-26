@@ -41,7 +41,7 @@ export default function UniversitiesSection() {
             studentCount: uni.studentCount
               ? Number(uni.studentCount)
               : undefined,
-            featured: uni.featured === 'true' || uni.featured === true,
+            featured: String(uni.featured) === 'true',
           }));
           setUniversities(processedData);
         } else {
