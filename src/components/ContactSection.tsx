@@ -9,7 +9,9 @@ const ContactSection: React.FC<Props> = ({ id }) => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -22,7 +24,9 @@ const ContactSection: React.FC<Props> = ({ id }) => {
 
   return (
     <section id={id} className="w-full px-6 py-24 bg-gray-900/50">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">お問い合わせ</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+        お問い合わせ
+      </h2>
       {submitted ? (
         <p className="text-center text-xl">送信ありがとうございました！</p>
       ) : (
@@ -91,4 +95,4 @@ const ContactSection: React.FC<Props> = ({ id }) => {
   );
 };
 
-export default ContactSection; 
+export default ContactSection;

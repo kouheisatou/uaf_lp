@@ -14,4 +14,4 @@ const ParallaxDecorations: React.FC = () => {
   );
 };
 
-export default ParallaxDecorations; 
+export default ParallaxDecorations;

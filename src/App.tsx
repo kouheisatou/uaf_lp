@@ -32,9 +32,17 @@ const App: React.FC = () => {
       {/* ABOUT */}
       <Section id="about" title="連盟について" {...aboutContent} />
       {/* ACTIVITIES */}
-      <ActivitiesSection id="activities" title="活動内容" activities={activitiesData} />
+      <ActivitiesSection
+        id="activities"
+        title="活動内容"
+        activities={activitiesData}
+      />
       {/* UNIVERSITIES */}
-      <ListSection id="universities" title="参加大学" items={universitiesList} />
+      <ListSection
+        id="universities"
+        title="参加大学"
+        items={universitiesList}
+      />
       {/* SPONSORS */}
       <ListSection id="sponsors" title="協賛企業" items={sponsorsList} />
       {/* CONTACT */}
@@ -46,4 +54,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App; 
+export default App;

@@ -54,4 +54,4 @@ const ActivitiesSection: React.FC<Props> = ({ id, title, activities }) => {
   );
 };
 
-export default ActivitiesSection; 
+export default ActivitiesSection;

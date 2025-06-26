@@ -41,4 +41,4 @@ const ListSection: React.FC<Props> = ({ id, title, items }) => {
   );
 };
 
-export default ListSection; 
+export default ListSection;

@@ -35,4 +35,4 @@ const Section: React.FC<Props> = ({ id, title, body }) => {
   );
 };
 
-export default Section; 
+export default Section;

@@ -52,4 +52,4 @@ const CredoSection: React.FC<Props> = ({ id, mission, vision, value }) => {
   );
 };
 
-export default CredoSection; 
+export default CredoSection;

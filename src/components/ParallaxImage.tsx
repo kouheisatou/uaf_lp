@@ -7,7 +7,11 @@ interface Props {
   className?: string;
 }
 
-const ParallaxImage: React.FC<Props> = ({ src, speed = 0.2, className = "" }) => {
+const ParallaxImage: React.FC<Props> = ({
+  src,
+  speed = 0.2,
+  className = "",
+}) => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", `-${speed * 100}%`]);
   const extendedHeight = `${100 + speed * 100}%`; // ensures coverage when translated
@@ -23,4 +27,4 @@ const ParallaxImage: React.FC<Props> = ({ src, speed = 0.2, className = "" }) =>
   );
 };
 
-export default ParallaxImage; 
+export default ParallaxImage;
