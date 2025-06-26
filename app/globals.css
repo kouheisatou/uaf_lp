@@ -24,6 +24,12 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
   font-family:
     'Inter',
     -apple-system,
@@ -53,7 +59,10 @@ body {
 
 /* Custom gradient text */
 .gradient-text {
-  @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Glassmorphism effect */
@@ -134,4 +143,105 @@ body {
 
 .animate-slide-in-right {
   animation: slideInRight 0.8s ease-out;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Primary and secondary color styles */
+.text-primary-600 {
+  color: #667eea;
+}
+
+.text-primary-700 {
+  color: #5a67d8;
+}
+
+.bg-primary-50 {
+  background-color: #eef2ff;
+}
+
+.bg-primary-100 {
+  background-color: #e0e7ff;
+}
+
+.border-primary-100 {
+  border-color: #e0e7ff;
+}
+
+.border-primary-200 {
+  border-color: #c7d2fe;
+}
+
+.bg-primary-500 {
+  background-color: #667eea;
+}
+
+.bg-secondary-50 {
+  background-color: #fdf2f8;
+}
+
+.bg-secondary-100 {
+  background-color: #fce7f3;
+}
+
+.bg-secondary-500 {
+  background-color: #764ba2;
+}
+
+/* Leaflet Map Styles */
+.leaflet-container {
+  font-family: inherit;
+}
+
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.custom-popup .leaflet-popup-content {
+  margin: 0;
+  font-family: inherit;
+}
+
+.custom-popup .leaflet-popup-tip {
+  background: white;
+}
+
+/* Map container responsive adjustments */
+.leaflet-container .leaflet-control-zoom {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.leaflet-container .leaflet-control-zoom a {
+  border-radius: 0;
+  font-weight: bold;
+}
+
+/* Custom scrollbar for university list */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
