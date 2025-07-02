@@ -63,8 +63,8 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          NEXT_PUBLIC_BASE_PATH: ""
-          NEXT_PUBLIC_ASSET_PREFIX: "/"
+          NEXT_PUBLIC_BASE_PATH: ''
+          NEXT_PUBLIC_ASSET_PREFIX: '/'
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
