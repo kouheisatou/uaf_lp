@@ -38,16 +38,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Badge */}
-          <motion.div
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-100 to-secondary-100 px-4 py-2 rounded-full text-sm font-medium text-primary-700 mb-8"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Sparkles className="w-4 h-4" />
-            <span>一般社団法人として活動中</span>
-          </motion.div>
+          {/* Badge removed per request */}
 
           {/* Main Heading */}
           <motion.h1
