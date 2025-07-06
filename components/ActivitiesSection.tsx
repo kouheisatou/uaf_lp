@@ -102,7 +102,7 @@ export default function ActivitiesSection() {
             },
             {
               id: '3',
-              title: 'キャンパスアプリUI/UX改善プロジェクト',
+              title: '大学アプリUI/UX改善プロジェクト',
               description: '複数大学のアプリのユーザビリティ向上',
               category: 'development',
               date: '2024-01-10',

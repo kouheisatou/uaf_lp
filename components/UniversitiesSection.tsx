@@ -52,7 +52,7 @@ export default function UniversitiesSection() {
               name: '東京大学',
               location: '東京',
               appName: 'UTokyo Life',
-              appDescription: '学生生活を総合的にサポートするキャンパスアプリ',
+              appDescription: '学生生活を総合的にサポートする大学アプリ',
               studentCount: 28000,
               featured: true,
               latitude: 35.7139,
@@ -160,7 +160,7 @@ export default function UniversitiesSection() {
             Participating <span className="gradient-text">Universities</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            全国の主要大学が参加し、それぞれ独自のキャンパスアプリを開発・運営しています
+            全国の主要大学が参加し、それぞれ独自の大学アプリを開発・運営しています
           </p>
         </motion.div>
 

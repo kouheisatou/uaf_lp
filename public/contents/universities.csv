@@ -1,5 +1,5 @@
 id,name,location,appName,appDescription,studentCount,website,featured,thumbnail,latitude,longitude
-1,東京大学,東京,UTokyo Life,学生生活を総合的にサポートするキャンパスアプリ,28000,https://www.u-tokyo.ac.jp,true,utokyo.jpg,35.7139,139.7599
+1,東京大学,東京,UTokyo Life,学生生活を総合的にサポートする大学アプリ,28000,https://www.u-tokyo.ac.jp,true,utokyo.jpg,35.7139,139.7599
 2,京都大学,京都,KyotoU Connect,研究室マッチングと学習支援機能を提供,22000,https://www.kyoto-u.ac.jp,true,kyoto-u.jpg,35.0265,135.7824
 3,大阪大学,大阪,Handai Hub,多キャンパス間の交流促進アプリ,23000,https://www.osaka-u.ac.jp,true,osaka-u.jpg,34.8211,135.5221
 4,慶應義塾大学,東京,Keio Campus,伝統と革新を融合したデジタル体験,33000,https://www.keio.ac.jp,true,keio.jpg,35.6526,139.7456
