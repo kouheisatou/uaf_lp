@@ -70,7 +70,7 @@ export default function HeroSection() {
           >
             大学アプリ連盟は、全国の大学生が開発する
             <br className="hidden md:block" />
-            キャンパスアプリを通じて、
+            大学アプリを通じて、
             <span className="text-primary-600 font-semibold">
               大学・世代を越えた共創
             </span>

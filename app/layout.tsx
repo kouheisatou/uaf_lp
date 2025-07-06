@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'University App Federation',
     '大学アプリ',
     '学生開発',
-    'キャンパスアプリ',
+    '大学アプリ',
   ],
   authors: [{ name: 'UAF - University App Federation' }],
   openGraph: {

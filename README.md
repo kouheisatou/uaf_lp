@@ -2,7 +2,7 @@
 
 [![Deploy to GitHub Pages](https://github.com/university-app-federation/uaf_lp_1/actions/workflows/deploy.yml/badge.svg)](https://github.com/university-app-federation/uaf_lp_1/actions/workflows/deploy.yml)
 
-大学アプリ連盟（UAF: University App Federation）の公式ランディングページです。学生主体のキャンパスアプリ開発を推進し、大学の垣根を越えた共創を実現する組織として活動しています。
+大学アプリ連盟（UAF: University App Federation）の公式ランディングページです。学生主体の大学アプリ開発を推進し、大学の垣根を越えた共創を実現する組織として活動しています。
 
 ## 🌟 プロジェクト概要
 
