@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown, Sparkles, Users, Code } from 'lucide-react';
+import { ChevronDown, Sparkles, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function HeroSection() {
@@ -79,7 +79,7 @@ export default function HeroSection() {
 
           {/* Stats */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
@@ -92,13 +92,6 @@ export default function HeroSection() {
               <p className="text-gray-600">参加大学</p>
             </div>
 
-            <div className="flex flex-col items-center p-6 bg-white/50 backdrop-blur-sm rounded-2xl border border-white/20">
-              <div className="w-16 h-16 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-xl flex items-center justify-center mb-4">
-                <Code className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-1">50+</h3>
-              <p className="text-gray-600">開発プロジェクト</p>
-            </div>
 
             <div className="flex flex-col items-center p-6 bg-white/50 backdrop-blur-sm rounded-2xl border border-white/20">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4">
