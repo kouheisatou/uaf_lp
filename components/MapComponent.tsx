@@ -70,7 +70,7 @@ export default function MapComponent({
     <MapContainer
       center={center}
       zoom={zoom}
-      style={{ height: '100%', width: '100%' }}
+      style={{ height: '100%', width: '100%', zIndex: 1 }}
       scrollWheelZoom={false}
     >
       <TileLayer

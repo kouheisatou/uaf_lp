@@ -3,7 +3,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Target, BookOpen, Users, Code, Lightbulb, ArrowRight } from 'lucide-react';
+import {
+  Target,
+  BookOpen,
+  Users,
+  Code,
+  Lightbulb,
+  ArrowRight,
+} from 'lucide-react';
 
 export default function MissionSection() {
   const ref = useRef(null);
@@ -64,10 +71,10 @@ export default function MissionSection() {
               <Target className="w-10 h-10 text-white" />
             </div>
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
-              学生の力で、大学生活の体験を進化させる
+              学生の力で、大学生活をより便利により豊かにする
             </h3>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              全国の大学生が主体となってキャンパスアプリを開発し、
+              全国の大学生が主体となって大学アプリを開発し、
               より良い大学生活を創造するプラットフォームを構築します
             </p>
           </div>
@@ -75,4 +82,4 @@ export default function MissionSection() {
       </div>
     </section>
   );
-} 
+}

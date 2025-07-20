@@ -89,7 +89,9 @@ export default function ValuesSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${value.bgColor} rounded-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-300`} />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${value.bgColor} rounded-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-300`}
+              />
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-300 h-full group-hover:scale-105">
                 <div className="text-center">
                   <div
@@ -110,7 +112,9 @@ export default function ValuesSection() {
                 </div>
 
                 {/* Decorative Element */}
-                <div className={`absolute top-4 right-4 w-12 h-12 bg-gradient-to-br ${value.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
+                <div
+                  className={`absolute top-4 right-4 w-12 h-12 bg-gradient-to-br ${value.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
+                />
               </div>
             </motion.div>
           ))}
@@ -160,4 +164,4 @@ export default function ValuesSection() {
       </div>
     </section>
   );
-} 
+}

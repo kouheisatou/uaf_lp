@@ -16,29 +16,6 @@ export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const highlights = [
-    {
-      icon: Building2,
-      title: '一般社団法人',
-      description: '正式な法人格を持つ組織として、持続可能な活動を展開',
-    },
-    {
-      icon: Users,
-      title: '学生主導',
-      description: '学生の、学生による、学生のための活動を貫く',
-    },
-    {
-      icon: Globe,
-      title: '全国規模',
-      description: '日本全国の大学と連携し、知見を共有',
-    },
-    {
-      icon: Lightbulb,
-      title: 'イノベーション',
-      description: '新しいアイデアと技術で大学生活を革新',
-    },
-  ];
-
   return (
     <section
       id="about"
@@ -88,7 +65,7 @@ export default function AboutSection() {
                   なぜ大学アプリなのか？
                 </h4>
                 <p className="text-gray-700 leading-relaxed">
-                  現代の大学生にとって、デジタル体験は日常の一部です。しかし、多くの大学では古いシステムや複雑な手続きが残っています。学生開発者によるアプリは、これらの課題を学生目線で解決し、より良いキャンパスライフを実現します。
+                  学生にとって本当に価値のある情報を学生目線で提供し、大学生活をより豊かにします。また、学生にとって最も身近な、大学アプリを通じて、アプリ制作の第1歩を踏み出す手助けをします。
                 </p>
               </div>
             </div>
@@ -106,7 +83,7 @@ export default function AboutSection() {
                 <Award className="w-16 h-16 mb-6" />
                 <h4 className="text-2xl font-bold mb-4">一般社団法人として</h4>
                 <p className="text-primary-100 leading-relaxed">
-                  2024年に一般社団法人として設立され、学生団体を超えた組織運営により、持続可能で信頼性の高い活動を展開しています。
+                  2025年に一般社団法人として設立され、学生団体を超えた組織運営により、持続可能で信頼性の高い活動を展開しています。
                 </p>
               </div>
             </div>
@@ -116,47 +93,6 @@ export default function AboutSection() {
             <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-primary-200 rounded-full opacity-30 blur-lg" />
           </motion.div>
         </div>
-
-        {/* Highlights Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          {highlights.map((highlight, index) => (
-            <motion.div
-              key={highlight.title}
-              className="group text-center p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <highlight.icon className="w-8 h-8 text-primary-600" />
-              </div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">
-                {highlight.title}
-              </h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {highlight.description}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 cursor-pointer group">
-            <span>活動内容を詳しく見る</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </div>
-        </motion.div>
       </div>
 
       {/* Background Pattern */}

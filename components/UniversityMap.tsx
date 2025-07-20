@@ -45,7 +45,8 @@ export default function UniversityMap({ universities }: UniversityMapProps) {
 
   return (
     <motion.div
-      className="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg"
+      className="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg relative"
+      style={{ zIndex: 1 }}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -63,7 +64,7 @@ export default function UniversityMap({ universities }: UniversityMapProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* 地図エリア */}
         <div className="lg:col-span-2">
-          <div className="h-96 rounded-2xl overflow-hidden border border-gray-200">
+          <div className="h-96 rounded-2xl overflow-hidden border border-gray-200 relative z-0">
             <Map
               center={japanCenter}
               zoom={5}

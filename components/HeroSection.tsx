@@ -61,7 +61,7 @@ export default function HeroSection() {
           >
             大学アプリ連盟は、全国の大学生が開発する
             <br className="hidden md:block" />
-            キャンパスアプリを通じて、
+            大学アプリを通じて、
             <span className="text-primary-600 font-semibold">
               大学・世代を越えた共創
             </span>
@@ -88,7 +88,7 @@ export default function HeroSection() {
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-1">...</h3>
-              <p className="text-gray-600">利用学生数</p>
+              <p className="text-gray-600">現役学生利用者数</p>
             </div>
           </motion.div>
 

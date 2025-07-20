@@ -3,7 +3,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Eye, Sparkles, Globe, Users, Lightbulb, Telescope } from 'lucide-react';
+import {
+  Eye,
+  Sparkles,
+  Globe,
+  Users,
+  Lightbulb,
+  Telescope,
+} from 'lucide-react';
 
 export default function VisionSection() {
   const ref = useRef(null);
@@ -13,7 +20,7 @@ export default function VisionSection() {
     {
       icon: Globe,
       title: '全国展開',
-      description: '全大学にキャンパスアプリが存在する世界',
+      description: '全大学に大学アプリが存在する世界',
       color: 'from-blue-500 to-cyan-500',
     },
     {
@@ -89,15 +96,14 @@ export default function VisionSection() {
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
               全大学に学生主体のアプリが存在し、
               <br className="hidden md:block" />
-              大学・世代を越えた共創のハブとなる
+              大学アプリ連盟が、大学・世代を越えた共創のハブとなる
             </h3>
             <p className="text-xl opacity-90 max-w-3xl mx-auto">
-              学生が主導する革新的なキャンパスアプリが全国の大学に普及し、
+              学生が主導する革新的な大学アプリが全国の大学に普及し、
               教育とテクノロジーの融合によって新たな学びの形を創造します
             </p>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

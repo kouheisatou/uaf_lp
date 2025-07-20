@@ -29,12 +29,14 @@ interface Member {
   email?: string;
   skills: string[];
   achievements: string[];
+  memberType: string;
 }
 
 export default function MembersSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [members, setMembers] = useState<Member[]>([]);
+  const [selectedMemberType, setSelectedMemberType] = useState('all');
 
   // CSVからデータを読み込み
   useEffect(() => {
@@ -50,83 +52,9 @@ export default function MembersSection() {
             achievements: member.achievements
               ? member.achievements.toString().split(';')
               : [],
+            memberType: member.memberType || '運営メンバー',
           }));
           setMembers(processedMembers);
-        } else {
-          // フォールバック用サンプルデータ
-          const fallbackMembers: Member[] = [
-            {
-              id: '1',
-              name: '田中 太郎',
-              role: '代表理事',
-              university: '東京大学',
-              bio: 'フルスタック開発者として複数の大学アプリを開発。学生開発者コミュニティの発展に情熱を注ぐ。',
-              skills: ['React', 'Node.js', 'TypeScript', 'AWS'],
-              achievements: [
-                '5つの大学アプリを開発',
-                'ハッカソン優勝経験',
-                '1万人以上のユーザーに利用されるアプリを開発',
-              ],
-              github: 'tanaka-taro',
-              twitter: 'tanaka_dev',
-            },
-            {
-              id: '2',
-              name: '佐藤 花子',
-              role: '技術担当理事',
-              university: '京都大学',
-              bio: 'UI/UXデザインとフロントエンド開発が専門。ユーザー中心設計でより良い学生体験を追求。',
-              skills: ['UI/UX Design', 'React', 'Figma', 'Flutter'],
-              achievements: [
-                'デザインアワード受賞',
-                '学内アプリのUX改善で満足度30%向上',
-                '複数企業でのインターン経験',
-              ],
-              github: 'sato-hanako',
-              linkedin: 'sato-hanako',
-            },
-            {
-              id: '3',
-              name: '山田 次郎',
-              role: '事業開発担当理事',
-              university: '大阪大学',
-              bio: 'プロダクトマネジメントと事業戦略が得意。学生開発の持続可能な仕組み作りに取り組む。',
-              skills: [
-                'Product Management',
-                'Business Strategy',
-                'Data Analysis',
-                'Python',
-              ],
-              achievements: [
-                '3つのスタートアップでPM経験',
-                'アプリの月間アクティブユーザー5万人達成',
-                'VC主催のピッチコンテスト優勝',
-              ],
-              twitter: 'yamada_pm',
-              linkedin: 'yamada-jiro',
-            },
-            {
-              id: '4',
-              name: '鈴木 美咲',
-              role: 'コミュニティ担当理事',
-              university: '早稲田大学',
-              bio: 'コミュニティ運営とイベント企画のエキスパート。学生同士のつながりを大切にする。',
-              skills: [
-                'Community Management',
-                'Event Planning',
-                'Marketing',
-                'Content Creation',
-              ],
-              achievements: [
-                '500人規模のイベント運営',
-                '20大学以上との連携構築',
-                'SNSフォロワー1万人以上',
-              ],
-              twitter: 'suzuki_community',
-              email: 'suzuki@uaf.edu',
-            },
-          ];
-          setMembers(fallbackMembers);
         }
       } catch (error) {
         console.error('Error loading members data:', error);
@@ -137,6 +65,19 @@ export default function MembersSection() {
 
     loadMembersData();
   }, []);
+
+  // メンバータイプタブの定義
+  const memberTypes = [
+    { id: 'all', label: '全て', icon: User },
+    { id: '運営メンバー', label: '運営メンバー', icon: Star },
+    { id: '参加大学メンバー', label: '参加大学メンバー', icon: GraduationCap },
+  ];
+
+  // フィルタリングされたメンバー
+  const filteredMembers =
+    selectedMemberType === 'all'
+      ? members
+      : members.filter((member) => member.memberType === selectedMemberType);
 
   return (
     <section
@@ -162,7 +103,7 @@ export default function MembersSection() {
 
         {/* Stats Section */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -171,7 +112,6 @@ export default function MembersSection() {
             { number: '20+', label: '運営メンバー', icon: User },
             { number: '15+', label: '参加大学', icon: GraduationCap },
             { number: '50+', label: '協力学生', icon: Star },
-            { number: '5+', label: '専門分野', icon: MapPin },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -191,138 +131,191 @@ export default function MembersSection() {
           ))}
         </motion.div>
 
+        {/* Member Type Tabs */}
+        <motion.div
+          className="flex justify-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-2 border border-white/30 shadow-lg">
+            <div className="flex space-x-2">
+              {memberTypes.map((type) => (
+                <button
+                  key={type.id}
+                  onClick={() => setSelectedMemberType(type.id)}
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    selectedMemberType === type.id
+                      ? 'bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-lg'
+                      : 'bg-transparent text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <type.icon className="w-4 h-4" />
+                  <span>{type.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         {/* Team Members */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {members.map((member, index) => (
-            <motion.div
-              key={member.id}
-              className="group"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
-            >
-              <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
-                <div className="flex items-start space-x-6 mb-6">
-                  {/* Avatar */}
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary-400 to-secondary-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg overflow-hidden">
-                      {member.avatar ? (
-                        <Image
-                          src={member.avatar}
-                          alt={member.name}
-                          width={80}
-                          height={80}
-                          className="w-full h-full object-cover rounded-2xl"
-                        />
-                      ) : (
-                        member.name
-                          .split(' ')
-                          .map((n) => n[0])
-                          .join('')
-                      )}
+        {filteredMembers.length === 0 ? (
+          <motion.div
+            className="text-center py-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <div className="text-gray-500">
+              <User className="w-16 h-16 mx-auto mb-4 opacity-50" />
+              <p className="text-xl">該当するメンバーが見つかりませんでした</p>
+              <p className="text-sm mt-2">別のカテゴリーをお試しください</p>
+            </div>
+          </motion.div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {filteredMembers.map((member, index) => (
+              <motion.div
+                key={member.id}
+                className="group"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
+              >
+                <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
+                  <div className="flex items-start space-x-6 mb-6">
+                    {/* Avatar */}
+                    <div className="flex-shrink-0">
+                      <div className="w-20 h-20 bg-gradient-to-br from-primary-400 to-secondary-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg overflow-hidden">
+                        {member.avatar ? (
+                          <Image
+                            src={member.avatar}
+                            alt={member.name}
+                            width={80}
+                            height={80}
+                            className="w-full h-full object-cover rounded-2xl"
+                          />
+                        ) : (
+                          member.name
+                            .split(' ')
+                            .map((n) => n[0])
+                            .join('')
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Basic Info */}
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-1">
+                        <h3 className="text-xl font-bold text-gray-900">
+                          {member.name}
+                        </h3>
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            member.memberType === '運営メンバー'
+                              ? 'bg-primary-100 text-primary-700'
+                              : 'bg-green-100 text-green-700'
+                          }`}
+                        >
+                          {member.memberType}
+                        </span>
+                      </div>
+                      <p className="text-primary-600 font-semibold mb-2">
+                        {member.role}
+                      </p>
+                      <div className="flex items-center text-gray-600 text-sm mb-3">
+                        <GraduationCap className="w-4 h-4 mr-1" />
+                        {member.university}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Basic Info */}
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary-600 font-semibold mb-2">
-                      {member.role}
-                    </p>
-                    <div className="flex items-center text-gray-600 text-sm mb-3">
-                      <GraduationCap className="w-4 h-4 mr-1" />
-                      {member.university}
+                  {/* Bio */}
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    {member.bio}
+                  </p>
+
+                  {/* Skills */}
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                      スキル
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {member.skills.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-medium"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                </div>
 
-                {/* Bio */}
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  {member.bio}
-                </p>
+                  {/* Achievements */}
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                      主な実績
+                    </h4>
+                    <ul className="space-y-1">
+                      {member.achievements.slice(0, 2).map((achievement, i) => (
+                        <li
+                          key={i}
+                          className="text-sm text-gray-600 flex items-start"
+                        >
+                          <Star className="w-3 h-3 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                {/* Skills */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">
-                    スキル
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {member.skills.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-medium"
+                  {/* Social Links */}
+                  <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
+                    {member.github && (
+                      <a
+                        href={`https://github.com/${member.github}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 bg-gray-100 hover:bg-gray-900 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
                       >
-                        {skill}
-                      </span>
-                    ))}
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.twitter && (
+                      <a
+                        href={`https://twitter.com/${member.twitter}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 bg-gray-100 hover:bg-blue-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
+                      >
+                        <Twitter className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.linkedin && (
+                      <a
+                        href={`https://linkedin.com/in/${member.linkedin}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 bg-gray-100 hover:bg-blue-600 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="w-8 h-8 bg-gray-100 hover:bg-red-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
+                      >
+                        <Mail className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
-
-                {/* Achievements */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">
-                    主な実績
-                  </h4>
-                  <ul className="space-y-1">
-                    {member.achievements.slice(0, 2).map((achievement, i) => (
-                      <li
-                        key={i}
-                        className="text-sm text-gray-600 flex items-start"
-                      >
-                        <Star className="w-3 h-3 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Social Links */}
-                <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
-                  {member.github && (
-                    <a
-                      href={`https://github.com/${member.github}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 bg-gray-100 hover:bg-gray-900 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-                    >
-                      <Github className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.twitter && (
-                    <a
-                      href={`https://twitter.com/${member.twitter}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 bg-gray-100 hover:bg-blue-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-                    >
-                      <Twitter className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.linkedin && (
-                    <a
-                      href={`https://linkedin.com/in/${member.linkedin}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 bg-gray-100 hover:bg-blue-600 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.email && (
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="w-8 h-8 bg-gray-100 hover:bg-red-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-                    >
-                      <Mail className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
         {/* Join CTA */}
         <motion.div
@@ -333,14 +326,21 @@ export default function MembersSection() {
         >
           <div className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-3xl p-8 border border-primary-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              一緒に活動しませんか？
+              一緒に運営メンバーとして活動しませんか？
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              UAFでは、大学アプリの発展に貢献したい学生を随時募集しています。
+              UAFでは、大学アプリの普及に貢献したい学生を随時募集しています。
               プログラミング、デザイン、企画、運営など、様々な分野で活躍できます。
             </p>
-            <button className="px-8 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-              参加を検討する
+            <button
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({
+                  behavior: 'smooth',
+                });
+              }}
+              className="px-8 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              参加する！
             </button>
           </div>
         </motion.div>

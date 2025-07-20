@@ -1,5 +1,9 @@
-id,name,role,university,bio,skills,achievements,github,twitter,linkedin,email,thumbnail
-1,田中山田之助 太郎,代表理事,東京大学,フルスタック開発者として複数の大学アプリを開発。学生開発者コミュニティの発展に情熱を注ぐ。,"React;Node.js;TypeScript;AWS","5つの大学アプリを開発;ハッカソン優勝経験;1万人以上のユーザーに利用されるアプリを開発",tanaka-taro,tanaka_dev,,tanaka@uaf.org,tanaka.jpg
-2,佐藤 花子,技術担当理事,京都大学,UI/UXデザインとフロントエンド開発が専門。ユーザー中心設計でより良い学生体験を追求。,"UI/UX Design;React;Figma;Flutter","デザインアワード受賞;学内アプリのUX改善で満足度30%向上;複数企業でのインターン経験",sato-hanako,,sato-hanako,,sato.jpg
-3,山田 次郎,事業開発担当理事,大阪大学,プロダクトマネジメントと事業戦略が得意。学生開発の持続可能な仕組み作りに取り組む。,"Product Management;Business Strategy;Data Analysis;Python","3つのスタートアップでPM経験;アプリの月間アクティブユーザー5万人達成;VC主催のピッチコンテスト優勝",,yamada_pm,yamada-jiro,,yamada.jpg
-4,鈴木 美咲,コミュニティ担当理事,早稲田大学,コミュニティ運営とイベント企画のエキスパート。学生同士のつながりを大切にする。,"Community Management;Event Planning;Marketing;Content Creation","500人規模のイベント運営;20大学以上との連携構築;SNSフォロワー1万人以上",,suzuki_community,,suzuki@uaf.org,suzuki.jpg 
+id,name,role,university,bio,skills,achievements,github,twitter,linkedin,email,thumbnail,memberType
+1,田中山田之助 太郎,代表理事,東京大学,フルスタック開発者として複数の大学アプリを開発。学生開発者コミュニティの発展に情熱を注ぐ。,"React;Node.js;TypeScript;AWS","5つの大学アプリを開発;ハッカソン優勝経験;1万人以上のユーザーに利用されるアプリを開発",tanaka-taro,tanaka_dev,,tanaka@uaf.org,tanaka.jpg,運営メンバー
+2,佐藤 花子,技術担当理事,京都大学,UI/UXデザインとフロントエンド開発が専門。ユーザー中心設計でより良い学生体験を追求。,"UI/UX Design;React;Figma;Flutter","デザインアワード受賞;学内アプリのUX改善で満足度30%向上;複数企業でのインターン経験",sato-hanako,,sato-hanako,,sato.jpg,運営メンバー
+3,山田 次郎,事業開発担当理事,大阪大学,プロダクトマネジメントと事業戦略が得意。学生開発の持続可能な仕組み作りに取り組む。,"Product Management;Business Strategy;Data Analysis;Python","3つのスタートアップでPM経験;アプリの月間アクティブユーザー5万人達成;VC主催のピッチコンテスト優勝",,yamada_pm,yamada-jiro,,yamada.jpg,運営メンバー
+4,鈴木 美咲,コミュニティ担当理事,早稲田大学,コミュニティ運営とイベント企画のエキスパート。学生同士のつながりを大切にする。,"Community Management;Event Planning;Marketing;Content Creation","500人規模のイベント運営;20大学以上との連携構築;SNSフォロワー1万人以上",,suzuki_community,,suzuki@uaf.org,suzuki.jpg,運営メンバー
+5,高橋 健太,アプリ開発リーダー,慶應義塾大学,慶應の学生向けアプリ「Keio Campus」の開発チームリーダー。機能追加と改善に取り組む。,"React Native;Firebase;Swift;Kotlin","アプリダウンロード数2万件突破;Apple Developer Academy参加;Google I/O Scholar認定",takahashi-k,takahashi_dev,,takahashi@keio.jp,takahashi.jpg,参加大学メンバー
+6,伊藤 あやか,デザイナー,筑波大学,筑波大学アプリのUI/UXを担当。学生の使いやすさを第一に考えたデザインを追求。,"UI/UX Design;Adobe Creative Suite;Sketch;Principle","学内デザインコンテスト最優秀賞;UXリサーチによる利用率20%改善;インターナショナルデザインアワードノミネート",ito-ayaka,ayaka_design,ito-ayaka,,ito.jpg,参加大学メンバー
+7,中村 翔太,バックエンドエンジニア,名古屋大学,名古屋大学アプリのサーバーサイド開発を担当。スケーラビリティと性能最適化が得意。,"Python;Django;PostgreSQL;Docker","サーバー応答速度50%改善;同時接続数1万人対応;AWSソリューションアーキテクト認定",nakamura-s,,nakamura-shota,,nakamura.jpg,参加大学メンバー
+8,加藤 由美,プロジェクトマネージャー,九州大学,九州大学アプリの企画・運営を統括。学生のニーズを汲み取った機能設計を行う。,"Project Management;User Research;Agile;Scrum","アプリ利用率学内90%達成;学生満足度調査で95%の高評価;7つの新機能を企画・実装",kato-yumi,yumi_pm,,kato@kyushu-u.ac.jp,kato.jpg,参加大学メンバー 

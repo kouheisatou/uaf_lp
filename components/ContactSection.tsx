@@ -56,14 +56,14 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: 'メール',
-      value: 'contact@uaf.org',
+      value: 'contact@univ-app.org',
       description: '一般的なお問い合わせはこちら',
       color: 'from-red-500 to-pink-600',
     },
     {
       icon: Building,
       title: '公式サイト',
-      value: 'www.uaf.org',
+      value: 'lp.univ-app.org',
       description: '詳細情報とリソース',
       color: 'from-blue-500 to-indigo-600',
     },
@@ -264,6 +264,13 @@ export default function ContactSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                    onClick={() => {
+                      if (method.title === '公式サイト') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      } else if (method.title === 'メール') {
+                        window.location.href = `mailto:${method.value}`;
+                      }
+                    }}
                   >
                     <div
                       className={`w-12 h-12 bg-gradient-to-br ${method.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}

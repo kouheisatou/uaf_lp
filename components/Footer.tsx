@@ -64,7 +64,11 @@ export default function Footer() {
                   href: 'https://discord.gg/uaf',
                   label: 'Discord',
                 },
-                { icon: Mail, href: 'mailto:contact@uaf.org', label: 'Email' },
+                {
+                  icon: Mail,
+                  href: 'mailto:contact@univ-app.org',
+                  label: 'Email',
+                },
               ].map((social) => (
                 <motion.a
                   key={social.label}
@@ -129,10 +133,10 @@ export default function Footer() {
               <div>
                 <p className="text-gray-300 text-sm">一般的なお問い合わせ</p>
                 <a
-                  href="mailto:contact@uaf.org"
+                  href="mailto:contact@univ-app.org"
                   className="text-white hover:text-primary-400 transition-colors duration-300"
                 >
-                  contact@uaf.org
+                  contact@univ-app.org
                 </a>
               </div>
 
@@ -161,7 +165,7 @@ export default function Footer() {
               viewport={{ once: true }}
             >
               <span className="text-gray-400 text-sm">
-                © 2024 University App Federation. All rights reserved.
+                © 2025 University App Federation. All rights reserved.
               </span>
             </motion.div>
 

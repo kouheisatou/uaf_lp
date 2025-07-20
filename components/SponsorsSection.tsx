@@ -4,12 +4,19 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { loadCSV } from '../lib/csvLoader';
-import { Building, Heart, Handshake, Star, ExternalLink } from 'lucide-react';
+import {
+  Building,
+  Heart,
+  Handshake,
+  Star,
+  ExternalLink,
+  Users,
+} from 'lucide-react';
 
 interface Sponsor {
   id: string;
   name: string;
-  category: 'platinum' | 'gold' | 'silver' | 'partner';
+  category: 'platinum' | 'gold' | 'silver' | 'partner' | 'advertising';
   description?: string;
   logo?: string;
   website?: string;
@@ -45,6 +52,13 @@ export default function SponsorsSection() {
       title: 'パートナー企業',
       color: 'from-blue-400 to-blue-600',
       description: '技術的アドバイスと連携',
+    },
+    {
+      id: 'advertising',
+      title: '広告パートナー',
+      color: 'from-purple-400 to-purple-600',
+      description:
+        'インターン、アルバイト情報や大学生活を豊かにするアプリなど、学生に有益な情報を提供',
     },
   ];
 
@@ -101,6 +115,27 @@ export default function SponsorsSection() {
               description: '研究開発における技術協力',
               contribution: '共同研究プロジェクトと技術アドバイス',
             },
+            {
+              id: '7',
+              name: 'CareerSupport',
+              category: 'advertising',
+              description: '就職活動を支援する人材サービス',
+              contribution: '就活セミナーと企業説明会の開催',
+            },
+            {
+              id: '8',
+              name: 'StudentCard',
+              category: 'advertising',
+              description: '学生専用クレジットカードとキャッシュレス決済',
+              contribution: '学生向け特典とポイントサービス',
+            },
+            {
+              id: '9',
+              name: 'OnlineLearning Pro',
+              category: 'advertising',
+              description: 'プログラミング・デザイン学習プラットフォーム',
+              contribution: '無料コースとスキルアップ支援',
+            },
           ];
           setSponsors(fallbackSponsors);
         }
@@ -141,7 +176,7 @@ export default function SponsorsSection() {
 
         {/* Partnership Benefits */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -166,6 +201,13 @@ export default function SponsorsSection() {
               title: 'イベント支援',
               description: 'ハッカソンや勉強会の会場・資金・講師を提供',
               color: 'from-green-500 to-teal-600',
+            },
+            {
+              icon: Users,
+              title: '学生支援',
+              description:
+                'インターン、アルバイト情報や大学生活を豊かにするアプリなど、学生に有益な情報を提供',
+              color: 'from-purple-500 to-purple-600',
             },
           ].map((benefit, index) => (
             <motion.div
@@ -292,12 +334,16 @@ export default function SponsorsSection() {
               学生開発者の成長を支援し、共に未来の技術者を育てませんか？
               様々な形でのパートナーシップを募集しています。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="flex justify-center">
+              <button
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth',
+                  });
+                }}
+                className="px-8 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              >
                 パートナーシップについて
-              </button>
-              <button className="px-8 py-3 border-2 border-primary-600 text-primary-600 font-semibold rounded-full hover:bg-primary-600 hover:text-white transition-all duration-300">
-                資料請求
               </button>
             </div>
           </div>

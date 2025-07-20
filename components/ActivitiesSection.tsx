@@ -13,6 +13,8 @@ import {
   MapPin,
   ExternalLink,
   ChevronRight,
+  Handshake,
+  Layers,
 } from 'lucide-react';
 
 interface Activity {
@@ -33,15 +35,16 @@ export default function ActivitiesSection() {
 
   const categories = [
     { id: 'all', label: '全て', icon: Users },
-    { id: 'development', label: '開発支援', icon: Code2 },
-    { id: 'education', label: '勉強会', icon: BookOpen },
-    { id: 'event', label: 'イベント', icon: Rocket },
+    { id: 'development', label: 'アプリ開発助言', icon: Code2 },
+    { id: 'networking', label: '大学間交流', icon: Handshake },
+    { id: 'education', label: '勉強会・ワークショップ', icon: BookOpen },
+    { id: 'collaboration', label: 'プロダクト共同開発', icon: Layers },
   ];
 
   const featuredActivities = [
     {
       icon: Code2,
-      title: 'アプリ開発支援',
+      title: 'アプリ開発助言',
       description: '各大学のアプリ開発チームに対する技術的支援と知見の共有',
       color: 'from-blue-500 to-blue-600',
       details: ['技術コンサルティング', 'コードレビュー', '開発リソース提供'],
@@ -81,43 +84,6 @@ export default function ActivitiesSection() {
 
         if (csvData.length > 0) {
           setActivities(csvData);
-        } else {
-          // フォールバック用サンプルデータ
-          const fallbackActivities: Activity[] = [
-            {
-              id: '1',
-              title: '第1回 UAF ハッカソン',
-              description: '全国の大学生が集まる3日間のハッカソンイベント',
-              category: 'event',
-              date: '2024-03-15',
-              location: '東京',
-            },
-            {
-              id: '2',
-              title: 'React Native 勉強会',
-              description: 'モバイルアプリ開発の基礎から応用まで',
-              category: 'education',
-              date: '2024-02-20',
-              location: 'オンライン',
-            },
-            {
-              id: '3',
-              title: 'キャンパスアプリUI/UX改善プロジェクト',
-              description: '複数大学のアプリのユーザビリティ向上',
-              category: 'development',
-              date: '2024-01-10',
-              location: '大阪',
-            },
-            {
-              id: '4',
-              title: '新入生向けアプリ開発講座',
-              description: 'プログラミング初心者のためのワークショップ',
-              category: 'education',
-              date: '2024-04-05',
-              location: '福岡',
-            },
-          ];
-          setActivities(fallbackActivities);
         }
       } catch (error) {
         console.error('Error loading activities data:', error);

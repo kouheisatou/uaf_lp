@@ -52,7 +52,7 @@ export default function UniversitiesSection() {
               name: '東京大学',
               location: '東京',
               appName: 'UTokyo Life',
-              appDescription: '学生生活を総合的にサポートするキャンパスアプリ',
+              appDescription: '学生生活を総合的にサポートする大学アプリ',
               studentCount: 28000,
               featured: true,
               latitude: 35.7139,
@@ -160,7 +160,7 @@ export default function UniversitiesSection() {
             Participating <span className="gradient-text">Universities</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            全国の主要大学が参加し、それぞれ独自のキャンパスアプリを開発・運営しています
+            全国の主要大学が参加し、それぞれ独自の大学アプリを開発・運営しています
           </p>
         </motion.div>
 
@@ -222,10 +222,17 @@ export default function UniversitiesSection() {
 
         {/* Join CTA */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-2xl font-semibold cursor-pointer group">
+          <button
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth',
+              });
+            }}
+            className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-2xl font-semibold cursor-pointer group hover:shadow-xl transition-all duration-300"
+          >
             <Plus className="w-5 h-5" />
             <span>あなたの大学も参加しませんか？</span>
-          </div>
+          </button>
           <p className="text-gray-600 text-sm mt-4 max-w-2xl mx-auto">
             UAFでは新しい参加大学を随時募集しています。
             学生主体のアプリ開発に興味がある大学はお気軽にお問い合わせください。
