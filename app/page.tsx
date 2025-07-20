@@ -2,7 +2,9 @@
 
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import MissionSection from '@/components/MissionSection';
 import VisionSection from '@/components/VisionSection';
+import ValuesSection from '@/components/ValuesSection';
 import AboutSection from '@/components/AboutSection';
 import ActivitiesSection from '@/components/ActivitiesSection';
 import MembersSection from '@/components/MembersSection';
@@ -18,7 +20,9 @@ export default function Home() {
       <ParallaxBackground />
       <Header />
       <HeroSection />
+      <MissionSection />
       <VisionSection />
+      <ValuesSection />
       <AboutSection />
       <ActivitiesSection />
       <MembersSection />

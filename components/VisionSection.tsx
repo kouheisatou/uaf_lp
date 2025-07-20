@@ -3,36 +3,53 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Target, Eye, Heart, Users, Lightbulb, TrendingUp } from 'lucide-react';
+import { Eye, Sparkles, Globe, Users, Lightbulb, Telescope } from 'lucide-react';
 
 export default function VisionSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const values = [
+  const visionElements = [
+    {
+      icon: Globe,
+      title: '全国展開',
+      description: '全大学にキャンパスアプリが存在する世界',
+      color: 'from-blue-500 to-cyan-500',
+    },
     {
       icon: Users,
-      title: 'User First',
-      subtitle: '学生視点を貫く',
-      description:
-        '全ての活動は、アプリの先にいる学生ユーザーのために。真に価値ある体験を追求する。',
-      color: 'from-blue-500 to-blue-600',
+      title: '世代を超えた連携',
+      description: '学年・大学を越えた学生同士の協働',
+      color: 'from-green-500 to-teal-500',
     },
     {
-      icon: Heart,
-      title: 'Co-creation',
-      subtitle: '共に創る',
-      description:
-        '一人よりチームで、一大学より多大学で。多様な才能を掛け合わせ、より大きな価値を創造する。',
-      color: 'from-red-500 to-pink-600',
+      icon: Sparkles,
+      title: 'イノベーション創出',
+      description: '学生発の革新的なアイデアとソリューション',
+      color: 'from-purple-500 to-pink-500',
+    },
+  ];
+
+  const futureGoals = [
+    {
+      icon: Telescope,
+      title: '2030年までの目標',
+      points: [
+        '100大学でのアプリ展開',
+        '10万人の学生利用者',
+        '大学間連携プロジェクト100件',
+      ],
+      color: 'from-orange-500 to-red-500',
     },
     {
-      icon: TrendingUp,
-      title: 'Challenge & Grow',
-      subtitle: '挑戦し、成長する',
-      description:
-        '現状維持を良しとせず、新たな開発や連携に挑戦する。そのプロセスを通じて、個人も組織も成長する。',
-      color: 'from-green-500 to-emerald-600',
+      icon: Lightbulb,
+      title: 'イノベーション創出',
+      points: [
+        '学生発スタートアップ支援',
+        '産学連携プロジェクト促進',
+        '次世代教育システム構築',
+      ],
+      color: 'from-yellow-500 to-orange-500',
     },
   ];
 
@@ -45,7 +62,7 @@ export default function VisionSection() {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -54,130 +71,33 @@ export default function VisionSection() {
             Our <span className="gradient-text">Vision</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            私たちが目指す未来と、それを実現するための価値観
+            私たちが目指す未来と、その実現に向けたビジョン
           </p>
         </motion.div>
 
-        {/* Mission & Vision Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          {/* Mission Card */}
-          <motion.div
-            className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-xl"
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mr-4">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900">MISSION</h3>
-                <p className="text-gray-600">私たちの使命</p>
-              </div>
-            </div>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              学生の力で、大学生活の体験を進化させる
-            </p>
-          </motion.div>
-
-          {/* Vision Card */}
-          <motion.div
-            className="bg-white/60 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-xl"
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-secondary-500 to-secondary-600 rounded-2xl flex items-center justify-center mr-4">
-                <Eye className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900">VISION</h3>
-                <p className="text-gray-600">私たちが目指す未来</p>
-              </div>
-            </div>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              全大学に学生主体のアプリが存在し、大学・世代を越えた共創のハブとなる。
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Values Section */}
+        {/* Main Vision Card */}
         <motion.div
-          className="text-center mb-12"
+          className="max-w-5xl mx-auto mb-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">
-            Our <span className="gradient-text">Values</span>
-          </h3>
-          <p className="text-lg text-gray-600">私たちの行動を導く3つの価値観</p>
+          <div className="bg-gradient-to-r from-secondary-500 via-purple-500 to-indigo-500 rounded-3xl p-12 text-white text-center shadow-2xl">
+            <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
+              <Eye className="w-10 h-10 text-white" />
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              全大学に学生主体のアプリが存在し、
+              <br className="hidden md:block" />
+              大学・世代を越えた共創のハブとなる
+            </h3>
+            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+              学生が主導する革新的なキャンパスアプリが全国の大学に普及し、
+              教育とテクノロジーの融合によって新たな学びの形を創造します
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {values.map((value, index) => (
-            <motion.div
-              key={value.title}
-              className="group relative"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 + index * 0.2 }}
-            >
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
-                <div className="text-center">
-                  <div
-                    className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <value.icon className="w-10 h-10 text-white" />
-                  </div>
-
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">
-                    {value.title}
-                  </h4>
-                  <p className="text-primary-600 font-semibold mb-4">
-                    {value.subtitle}
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Background Decorations */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary-200/30 to-secondary-200/30 rounded-full filter blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-secondary-200/30 to-purple-200/30 rounded-full filter blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
       </div>
     </section>
   );
